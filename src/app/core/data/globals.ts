@@ -1,0 +1,1 @@
+const API: string = "https://localhost:44367/api/"
