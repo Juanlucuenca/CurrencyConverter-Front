@@ -13,11 +13,19 @@ export class UserServiceService {
   baseUrl = environment.API_BASE_URL;
   constructor(private httpClient: HttpClient) { }
 
-  GetAll(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.baseUrl}/User`);
+  GetAll(): Observable<User[] | unknown> {
+    return this.httpClient.get<User[]>(`${this.baseUrl}/User`)
+            .pipe(
+              catchError((error: any) => {
+                if(error.status === 404) {
+                  return of(null);
+                }
+                return throwError(error);
+              })
+            );
   }
 
-  GetById(id: number): Observable<User | null> {
+  GetById(id: number): Observable<User | unknown> {
     return this.httpClient.get<User>(`${this.baseUrl}/User/${id}`)
       .pipe(
         catchError((error: any) => {
@@ -29,17 +37,27 @@ export class UserServiceService {
       );
     }
 
-    Update(user: UserForUpdate): Observable<Boolean> {
-      return this.httpClient.put<Boolean>(`${this.baseUrl}/User`, user);
-    }
+  Update(user: UserForUpdate): Observable<Boolean | unknown> {
+    return this.httpClient.put<Boolean>(`${this.baseUrl}/User`, user)
+            .pipe(
+              catchError((error: any) => {
+                if(error.status === 404) {
+                  return of(null);
+                }
+                return throwError(error);
+              })
+            );
   }
 
-  Delete(id: number): Observable<Boolean> {
-    return this.httpClient.delete<Boolean>(`${this.baseUrl}/User/${id}`);
+  Delete(id: number): Observable<Boolean | unknown> {
+    return this.httpClient.delete<Boolean>(`${this.baseUrl}/User/${id}`)
+            .pipe(
+              catchError((error: any) => {
+                if(error.status === 404) {
+                  return of(null);
+                }
+                return throwError(error);
+              })
+            );
   }
-
 }
-function Of(arg0: null): any {
-  throw new Error('Function not implemented.');
-}
-
