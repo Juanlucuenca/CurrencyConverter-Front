@@ -1,0 +1,56 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+:host {
+    width: 70%;
+}
+
+.form {
+    &_group {
+        margin: 1.5rem 0;
+    }
+
+    &_error{
+        color: red;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &_text {
+        color: $color-light;
+        font-size: 1rem;
+        text-align: center;
+        font-weight: lighter;
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+
+        &--green {
+            color: $color-primary;
+        }
+    }
+
+    &_label {
+        color: $color-primary;
+        margin-bottom: .5rem;
+        font-weight: 400;
+    }
+
+    &_input {
+        width: 100%;
+        margin-top: .5em;
+        padding: 0.6rem 0.75rem;
+        margin-bottom: .4rem;
+
+        outline: 2px solid $color-lightdark;
+        background-color: $color-secondary;
+        color: white;
+        border-radius: 21px;
+        border: none;
+
+        &:focus {
+            outline: 2px solid $color-primary;
+        }
+    }
+}

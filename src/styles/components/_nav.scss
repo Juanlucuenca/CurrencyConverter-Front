@@ -1,0 +1,29 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+:host{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav{
+    width: 80%;
+    margin: 1rem;
+    height: 8vh;
+    background-color: $color-secondary; /* Fondo gris oscuro para la navbar */
+    border: 2px $color-lightdark solid;
+    border-radius: 30px; /* Bordes redondeados */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &_icon {
+        width: 50px;
+    }
+
+
+}

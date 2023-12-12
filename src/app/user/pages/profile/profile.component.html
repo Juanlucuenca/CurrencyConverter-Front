@@ -1,0 +1,7 @@
+<div *ngFor="let entry of userProfileEntries; let i = index">
+    <shared-item [title]="entry[0]" [description]="entry[1]"></shared-item>
+</div>
+
+<button routerLink="/admin/panel" *ngIf="isAdmin" class="button">Admin Actions</button>
+<button routerLink="/user/history" class="button">View History</button>
+<button (click)="logout()" class="button button--danger">Logout</button>

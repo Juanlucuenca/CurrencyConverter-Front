@@ -1,0 +1,28 @@
+
+@import '../../../../styles/components/form';
+@import '../../../../styles/components/button';
+@import '../../../../styles/abstracts/variables';
+
+.background-dark {
+    background-color: #0000006e;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 50;
+  }
+
+  .modal-container {
+    background: $color-black;
+    width: 90vw;
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el elemento basado en su propio tamaño */
+    box-sizing: border-box;
+    padding: 15px 25px;
+    z-index: 100;
+    border-radius: 21px;
+  }
+

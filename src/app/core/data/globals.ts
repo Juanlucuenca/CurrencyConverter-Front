@@ -1,1 +1,1 @@
-const API: string = "https://localhost:44367/api/"
+export const API: string = "https://localhost:7204/api"

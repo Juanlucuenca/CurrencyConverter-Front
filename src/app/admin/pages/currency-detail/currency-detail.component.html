@@ -1,0 +1,18 @@
+<shared-item
+*ngFor="let prop of currencyProps"
+[title]="prop[0]"
+[description]="prop[1]"
+></shared-item>
+
+<button (click)="edit()" class="button">editar</button>
+<button (click)="delete(currency.id)" class="button">eliminar</button>
+
+
+<ng-container *ngIf="showModal">
+    <admin-modal
+        [currency]="currency"
+        [typeOfModal]="'edit'"
+        (closeModal)="closeModal()"
+    >
+    </admin-modal>
+</ng-container>

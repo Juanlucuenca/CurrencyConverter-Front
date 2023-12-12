@@ -1,0 +1,78 @@
+<div class="modal-container">
+    <form
+    [formGroup]="currencyForm"
+    (ngSubmit)="currencyActions()"
+    action=""
+    class="form"
+    autocomplete="off">
+
+        <div class="form_group">
+            <label class = "form_label" for="id">Id</label>
+
+            <input
+            formControlName="id"
+            type="id"
+            name="id"
+            id = "id"
+            class="form_input">
+            <div *ngIf="isValidField('id')"
+            class = "form_error">
+                {{ getFieldError('id') }}
+            </div>
+        </div>
+
+
+        <div class="form_group">
+            <label class = "form_label" for="name">name</label>
+
+            <input
+            formControlName="name"
+            type="name"
+            name="name"
+            id = "name"
+            class="form_input">
+            <div *ngIf="isValidField('name')"
+            class = "form_error">
+                {{ getFieldError('name') }}
+            </div>
+        </div>
+
+
+        <div class="form_group">
+            <label class = "form_label" for="ic">ic</label>
+
+            <input
+            formControlName="ic"
+            type="ic"
+            name="ic"
+            id = "ic"
+            class="form_input">
+            <div *ngIf="isValidField('ic')"
+            class = "form_error">
+                {{ getFieldError('ic') }}
+            </div>
+        </div>
+
+
+        <div class="form_group">
+            <label class = "form_label" for="symbol">symbol</label>
+
+            <input
+            formControlName="symbol"
+            type="symbol"
+            name="symbol"
+            id = "symbol"
+            class="form_input">
+            <div *ngIf="isValidField('symbol')"
+            class = "form_error">
+                {{ getFieldError('symbol') }}
+            </div>
+        </div>
+
+        <div class="form_group">
+            <input type="submit" name="Login" class="button">
+        </div>
+
+    </form></div>
+
+<div class="background-dark" (click)= "close()"></div>

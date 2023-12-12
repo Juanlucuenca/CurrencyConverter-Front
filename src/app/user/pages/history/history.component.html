@@ -1,0 +1,7 @@
+<ng-container *ngIf="history.length > 0; else notHistory">
+    <shared-item *ngFor="let conversion of history" [title]="conversion.currencyFromSymbol + ' to ' + conversion.currencyToSymbol" [description]="formatDateString(conversion.date)"></shared-item>
+</ng-container>
+
+<ng-template #notHistory>
+    <p class="text">No history yet</p>
+</ng-template>

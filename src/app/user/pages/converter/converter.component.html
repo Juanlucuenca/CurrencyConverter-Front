@@ -1,0 +1,70 @@
+
+<form
+[formGroup]="convertForm"
+(ngSubmit)="convert()"
+autocomplete="off"
+class="form"
+>
+    <div class="form_group">
+        <label
+            class = "form_label"
+            for="fromConvert">
+            From Currency
+        </label>
+        <select
+            formControlName="FromCurrency"
+            name="fromConvert"
+            id="fromConvert"
+            class="form_input">
+            <option *ngFor="let currency of currencies" [ngValue]="currency.id">
+                {{ currency.name }}
+                </option>
+        </select>
+        <div *ngIf="isValidField('FromCurrency')"
+        class = "form_error">
+            {{ getFieldError('FromCurrency') }}
+        </div>
+    </div>
+
+    <div class="form_group">
+        <label
+            class = "form_label"
+            for="ToCurrency">
+            To Currency
+        </label>
+        <select
+            formControlName="ToCurrency"
+            name="toConvert"
+            id="toConvert"
+            class="form_input">
+            <option *ngFor="let currency of currencies" [ngValue]="currency.id">
+                {{ currency.name }}
+            </option>
+        </select>
+        <div *ngIf="isValidField('ToCurrency')"
+        class = "form_error">
+            {{ getFieldError('ToCurrency') }}
+        </div>
+    </div>
+    <div class="form_group">
+        <label class = "form_label">Amount</label>
+
+        <input
+        (keypress)="onlyNumbers($event)"
+        placeholder="100"
+        formControlName="Amout"
+        type="amount"
+        name="amount"
+        id = "amount"
+        class="form_input">
+        <div *ngIf="isValidField('Amout')"
+        class = "form_error">
+            {{ getFieldError('Amout') }}
+        </div>
+    </div>
+
+    <div class="form_group">
+        <input type="submit" name="Login" class="button">
+        <p>You have made {{requestCount}} changes</p>
+    </div>
+</form>

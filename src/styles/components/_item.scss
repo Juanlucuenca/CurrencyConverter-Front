@@ -1,0 +1,33 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.item {
+    display: flex;
+    margin: .5rem 0;
+    background-color: $color-lightdark;
+    border: 2px solid #9C9C9C;
+    border-radius: 21px;
+    color: $color-light;
+
+    width: 292px;
+    height: 38px;
+
+    &_title {
+        background-color: $color-primary;
+        width: 35%;
+        border-radius: 21px 0 0 21px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &_description {
+        width: calc(100% - 35%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from './core/services/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  mostrarNavbar$ = this.navigationService.mostrarNavbar$;
 
+  constructor(private navigationService: NavigationService) { }
 }

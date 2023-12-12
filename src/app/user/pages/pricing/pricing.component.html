@@ -1,0 +1,8 @@
+<shared-card
+*ngFor="let subscription of subscriptions"
+[title] = "subscription.price + '€'"
+[buttonTitle] = "subscription.name"
+[description] = "subscription.amountOfConvertions + ' limited Requests'"
+[object] = "subscription"
+(sendObject)="setSubscription($event)">
+</shared-card>

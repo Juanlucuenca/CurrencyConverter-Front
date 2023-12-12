@@ -1,6 +1,6 @@
-export interface Subscrition {
-    Id: number;
-    Name: string;
-    Price: number;
-    AmoutOfConvertions: number;
+export interface Subscription {
+    id: number;
+    name: string;
+    price: number;
+    amountOfConvertions: number;
 }

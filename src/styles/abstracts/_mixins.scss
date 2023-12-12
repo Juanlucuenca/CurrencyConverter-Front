@@ -1,0 +1,70 @@
+// Flex
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+  }
+
+// short-flex
+@mixin short-flex($justify: flex-start, $align: stretch) {
+    @include flex(row, $justify, $align);
+  }
+
+
+// Grid
+@mixin grid($cols, $rows, $gap: 0) {
+    display: grid;
+    grid-template-columns: $cols;
+    grid-template-rows: $rows;
+    gap: $gap;
+  }
+
+// short-grid
+@mixin short-grid($cols) {
+    @include grid($cols, auto);
+  }
+
+
+// Responsive grid
+@mixin responsive-grid($cols, $rows, $breakpoints) {
+    @include grid($cols, $rows);
+
+    @each $breakpoint, $value in $breakpoints {
+      @media (max-width: $value) {
+        grid-template-columns: repeat(auto-fill, minmax($value, 1fr));
+      }
+    }
+}
+
+
+
+// Responsive
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px
+);
+
+@mixin responsive($point) {
+  @if map-has-key($breakpoints, $point) {
+    @media (max-width: map-get($breakpoints, $point)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint no definido: #{$point}.";
+  }
+}
+
+// Responsive font
+@mixin responsive-font($size) {
+    font-size: $size;
+
+    @each $breakpoint, $value in $breakpoints {
+      @media (max-width: $value) {
+        font-size: $size - 2px;
+      }
+    }
+  }

@@ -1,0 +1,46 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.card {
+    width: 17.1875rem;
+    height: 8.4375rem;
+    margin: 2rem;
+    padding: 0 2rem;
+    background-color: $color-lightdark;
+    border: 2px solid $color-secondary;
+    border-radius: 21px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    color: $color-light;
+    font-size: 1.01rem;
+
+    &_row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_description {
+        width: 100%;
+        align-self: flex-start;
+    }
+
+    &_button {
+        padding: .3rem 1rem;
+        font-weight: bold;
+        border-radius: 3rem;
+        background-color: $color-primary;
+        cursor: pointer;
+    }
+
+    &_title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+}

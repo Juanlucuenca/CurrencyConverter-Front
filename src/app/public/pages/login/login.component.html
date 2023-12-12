@@ -1,0 +1,47 @@
+
+<form
+[formGroup]="loginForm"
+(ngSubmit)="login()"
+action=""
+class="form"
+autocomplete="off">
+
+    <div class="form_group">
+        <label class = "form_label" for="UserName">Email</label>
+
+        <input
+        formControlName="Mail"
+        placeholder="example@gmail.com"
+        type="text"
+        name="UserName"
+        id = "username"
+        class="form_input">
+        <div *ngIf="isValidField('Mail')"
+        class = "form_error">
+            {{ getFieldError('Mail') }}
+        </div>
+
+    </div>
+
+    <div class="form_group">
+        <label class = "form_label" for="Password">Password</label>
+
+        <input
+        formControlName="Password"
+        type="password"
+        name="Password"
+        id = "password"
+        class="form_input">
+        <div *ngIf="isValidField('Password')"
+        class = "form_error">
+            {{ getFieldError('Password') }}
+        </div>
+
+    </div>
+
+    <div class="form_group">
+        <input type="submit" name="Login" class="button">
+        <p class = "form_text">Don't have an account? <a [routerLink]="['/register']" class = "form_text--green">Sing Up</a></p>
+    </div>
+
+</form>

@@ -1,0 +1,16 @@
+<shared-item
+*ngFor="let currency of currencies"
+[title] = "currency.id.toString()"
+[description] = "currency.name"
+routerLink="{{currency.id}}"
+></shared-item>
+
+<button (click)="create()" class="button">agregar</button>
+
+<ng-container *ngIf="showModal">
+    <admin-modal
+        [typeOfModal]="'create'"
+        (closeModal)="closeModal()"
+    >
+    </admin-modal>
+</ng-container>
